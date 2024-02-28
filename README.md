@@ -1,4 +1,4 @@
-This file was edited using the mgmt system on windows
+mgmt01-devin
 
 # Docker Compose Piwigo & MariaDB
 This is build documentation for Piwigo and MariaDB using docker compose.
