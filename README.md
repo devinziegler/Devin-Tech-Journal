@@ -1,3 +1,5 @@
+This file was edited using the mgmt system on windows
+
 # Docker Compose Piwigo & MariaDB
 This is build documentation for Piwigo and MariaDB using docker compose.
 
@@ -82,4 +84,4 @@ This file was edited and pushed to GitHub in the termianl!
 
 
 
-hostname
+
