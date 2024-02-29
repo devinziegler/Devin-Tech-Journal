@@ -1,5 +1,3 @@
-mgmt01-devin
-
 # Docker Compose Piwigo & MariaDB
 This is build documentation for Piwigo and MariaDB using docker compose.
 
@@ -79,8 +77,6 @@ Fill out the web GUI using information from earlier, or if left unchanged, the d
  * Default password is `DATABASE_PASSWORD`
    
 ![Database Config](database_configuration.png)
-
-This file was edited and pushed to GitHub in the termianl!
 
 
 
