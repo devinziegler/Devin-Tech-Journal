@@ -7,7 +7,7 @@
     - geerlingguy.apache
 
   tasks:
-    - name: add firewall rile
+    - name: add firewall rule
       firewalld:
         port: 80/tcp
         permanent: true
