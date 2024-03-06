@@ -1,0 +1,14 @@
+---
+- hosts: ansible01-devin
+  vars_files:
+    - /home/deployer/ansible/roles/geerlingguy.apache/defaults/main.yml
+  become: true
+  roles:
+    - geerlingguy.apache
+
+  tasks:
+    - name: add firewall rile
+      firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled 
