@@ -7,4 +7,5 @@
         name:
         - firefox 
         - 7zip
+        - notepadplusplus
         state: present
