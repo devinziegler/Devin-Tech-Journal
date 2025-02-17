@@ -1,4 +1,4 @@
-ll name DMZ-to-LAN default-action 'drop'                                                                                                                  
+set firewall name DMZ-to-LAN default-action 'drop'                                                                                                                  
 set firewall name DMZ-to-LAN enable-default-log                                                                                                                     
 set firewall name DMZ-to-LAN rule 10 action 'accept'                                                                                                                
 set firewall name DMZ-to-LAN rule 10 description 'wazuh agent communications with wazuh server'                                                                     
