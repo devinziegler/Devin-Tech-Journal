@@ -1,13 +1,13 @@
-# Let NetworkManager manage all devices on this system
+
 network:
   version: 2
-  renderer: NetworkManager
   ethernets:
-      INTERFACE:
-         addresses: []
+       ens18:
+         dhcp4: false
+         addresses: [172.16.50.5/24]
          nameservers:
-             addresses: []
+             addresses: [172.16.50.2]
          routes:
              - to: default
-               via: 
+               via: 172.16.50.2
 
