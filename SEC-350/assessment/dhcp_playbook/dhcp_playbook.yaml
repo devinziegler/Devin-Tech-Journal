@@ -1,5 +1,4 @@
 ---
-
 - name: Deploy DHCP on dhcp01
   hosts: dhcp01
   become: true
