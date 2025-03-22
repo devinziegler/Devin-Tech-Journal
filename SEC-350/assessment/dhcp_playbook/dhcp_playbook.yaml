@@ -1,0 +1,34 @@
+---
+
+- name: Deploy DHCP on dhcp01
+  hosts: dhcp01
+  become: true
+  tasks:
+    - name: Update apt
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install dhcp
+      ansible.builtin.apt:
+        name: isc-dhcp-server
+        state: present
+
+    - name: Ensure dhcp is running
+      service:
+        name: isc-dhcp-server
+        state: started
+        enabled: yes
+
+    - name: Deploy dhcp config
+      copy:
+        src: files/dhcpd.conf
+        dest: /etc/dhcp/dhcpd.conf
+        owner: root
+        group: root
+        mode: '0644'
+    
+    - name: Restart dhcp
+      ansible.builtin.service:
+        name: isc-dhcp-server
+        state: restarted
+
