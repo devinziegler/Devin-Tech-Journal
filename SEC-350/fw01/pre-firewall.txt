@@ -1,0 +1,71 @@
+set interfaces ethernet eth0 address '192.168.1.50/24'
+set interfaces ethernet eth0 description 'homelab-WAN'
+set interfaces ethernet eth0 hw-id 'bc:24:11:4f:97:e7'
+set interfaces ethernet eth0 offload gro
+set interfaces ethernet eth0 offload gso
+set interfaces ethernet eth0 offload sg
+set interfaces ethernet eth0 offload tso
+set interfaces ethernet eth1 address '172.16.50.2/24'
+set interfaces ethernet eth1 description 'homelab-DMZ'
+set interfaces ethernet eth1 hw-id 'bc:24:11:11:25:e8'
+set interfaces ethernet eth1 offload gro
+set interfaces ethernet eth1 offload gso
+set interfaces ethernet eth1 offload sg
+set interfaces ethernet eth1 offload tso
+set interfaces ethernet eth2 address '172.16.150.2/24'
+set interfaces ethernet eth2 description 'homelab-LAN'
+set interfaces ethernet eth2 hw-id 'bc:24:11:2e:b0:45'
+set interfaces ethernet eth2 offload gro
+set interfaces ethernet eth2 offload gso
+set interfaces ethernet eth2 offload sg
+set interfaces ethernet eth2 offload tso
+set interfaces loopback lo
+set nat destination rule 10 description 'HTTP->NGINX01'
+set nat destination rule 10 destination port '80'
+set nat destination rule 10 inbound-interface name 'eth0'
+set nat destination rule 10 protocol 'tcp'
+set nat destination rule 10 translation address '172.16.50.3'
+set nat destination rule 10 translation port '80'
+set nat destination rule 20 description 'SSH->JUMP'
+set nat destination rule 20 destination port '22'
+set nat destination rule 20 inbound-interface name 'eth0'
+set nat destination rule 20 protocol 'tcp'
+set nat destination rule 20 translation address '172.16.50.5'
+set nat destination rule 20 translation port '22'
+set nat source rule 30 description 'NAT FROM DMZ to WAN'
+set nat source rule 30 outbound-interface name 'eth0'
+set nat source rule 30 source address '172.16.50.0/24'
+set nat source rule 30 translation address 'masquerade'
+set nat source rule 40 description 'NAT FROM LAN to WAN'
+set nat source rule 40 outbound-interface name 'eth0'
+set nat source rule 40 source address '172.16.150.0/24'
+set nat source rule 40 translation address 'masquerade'
+set protocols rip interface eth2
+set protocols rip network '172.16.50.0/24'
+set protocols static route 0.0.0.0/0 next-hop 192.168.1.1
+set service dns forwarding allow-from '172.16.50.0/24'
+set service dns forwarding allow-from '172.16.150.0/24'
+set service dns forwarding listen-address '172.16.50.2'
+set service dns forwarding listen-address '172.16.150.2'
+set service dns forwarding system
+set service ntp allow-client address '127.0.0.0/8'
+set service ntp allow-client address '169.254.0.0/16'
+set service ntp allow-client address '10.0.0.0/8'
+set service ntp allow-client address '172.16.0.0/12'
+set service ntp allow-client address '192.168.0.0/16'
+set service ntp allow-client address '::1/128'
+set service ntp allow-client address 'fe80::/10'
+set service ntp allow-client address 'fc00::/7'
+set service ntp server time1.vyos.net
+set service ntp server time2.vyos.net
+set service ntp server time3.vyos.net
+set service ssh listen-address '192.168.1.50'
+set service ssh port '22'
+set system config-management commit-revisions '100'
+set system console device ttyS0 speed '115200'
+set system host-name 'fw01'
+set system login user vyos authentication encrypted-password '$6$rounds=656000$00xnUP14g9o/Nj0h$raRMXTNw8SCdMkXSTmVuHu4iIQqcI0LBaF/TNROLc99ncqwX98gLq0sXm/Bw3ssZpANQ/VXCwa5psKqr3Kvv1.'
+set system login user vyos authentication plaintext-password ''
+set system name-server '192.168.1.1'
+set system syslog local facility all level 'info'
+set system syslog local facility local7 level 'debug'
