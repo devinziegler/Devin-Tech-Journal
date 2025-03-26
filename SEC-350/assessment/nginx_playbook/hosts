@@ -1,2 +1,2 @@
 [nginx01]
-172.16.50.3 ansible_user=homelab-devin
+172.16.50.3 ansible_user=devin
