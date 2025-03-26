@@ -6,5 +6,5 @@
 4. Run the following command
 
 ```
-ansible-playbook -i hosts nginx_playbook --ask-become-pass
+ansible-playbook -i hosts nginx_playbook.yaml --ask-become-pass
 ```
