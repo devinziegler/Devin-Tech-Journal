@@ -1,0 +1,41 @@
+@startuml FreemanNetwork
+skinparam linetype ortho
+skinparam rectangle {
+  BackgroundColor #f9fafb
+  BorderColor #555
+  RoundCorner 8
+}
+
+title SYS-350 Network Diagram
+
+rectangle "Freeman Network\n192.168.3.0/24" as FREEMAN {
+  rectangle "Gateway\n192.168.3.250" as GW
+  rectangle "Cisco 3750 SW" as SW
+  rectangle "Firewall (Freeman iface)\n192.168.3.36" as LINK_FREEMAN
+  rectangle "Freeman Workstations\n192.168.3.100 – .120" as WS
+    rectangle "SuperMicro" as SERVER {
+        rectangle "SuperMicro ipmi\n192.168.3.176" as IPMI
+        rectangle "ESXI\n192.168.3.226" as ESXI
+    }
+}
+
+rectangle "350-Internal Network\n10.0.17.0/24" as INTERNAL {
+  rectangle "Firewall (Internal iface)\n10.0.17.2" as LINK_INTERNAL
+  rectangle "dc1\n10.0.17.4" as DC1
+  rectangle "mgmt-want\n10.0.17.100" as MGMT
+}
+
+
+
+' --- Connections ---
+SW -[dashed]-> LINK_FREEMAN
+GW -[dashed]-> SW
+GW -[dashed]-> WS
+LINK_FREEMAN -[bold]-> LINK_INTERNAL : routed link
+LINK_INTERNAL -[dashed]-> DC1
+LINK_INTERNAL -[dashed]-> MGMT
+SW -[dashed]-> IPMI
+IPMI -[dashed]-> ESXI
+
+
+@enduml
