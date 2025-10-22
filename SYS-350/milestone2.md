@@ -40,11 +40,27 @@ sudo mounmt /dev/cdrom /mnt/iso
  * Complete the install filling out the prompts. Walkthrough video can be found [here](https://drive.google.com/file/d/1IjURvaxPwUdoBzInhBUXNPHzI1FZfX9q/view)
  > This process will take a long time!! :)
 
- ## Notes and Tips
+ ## Joining vCenter to Domain
   **Make sure each system is synced with `pool.ntp.org`**
-  
-  Check NTP server on windows with:
-  ```ps1
-w32tm /query /source
-  ```
+  1. Log into vSphere Client with vshere.local SSO `administrator@vsphere.local`
+  2. Under Administration Select SSO -> Sonfiguration
+  3. Under `Active Directory Domain` select Join AD, use domain admin credentials
+  4. Restart vCenter throught the management console
 
+  ### Logging in with AD creds
+  **After the server is restarted log back in with vsphere SSO.**
+  1. Under `Administration/configuration/identity provider` select `identity Sources`
+  2. Select add fill out with the following:
+  ```
+   Identity Source Type:  AD
+   Domain name:           yourname.local
+  ```
+  3. Select the new Identity Source (your domain)
+  4. Select Set as Default
+
+  ### Add domain admin to vcenter admin group
+  1. Select `Users & Groups/Groups/Administrators/ADD MEMBERS`
+  2. Under the `Add Members` drop down select `yourname.local`
+  3. Add domain admin user to group and select `save`
+  
+  **You should not be able to log in with domain admin in vcenter**
