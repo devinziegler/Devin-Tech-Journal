@@ -28,7 +28,15 @@ rectangle "350-Internal Network\n10.0.17.0/24" as INTERNAL {
     }
 }
 
+rectangle "DMZ Network\n10.0.18.0/24" as DMZ_INTERNAL {
+  rectangle "Web01\n10.0.18.10" as web01
+}
 
+rectangle "MGMT Network\n10.0.19.0/24" as MGMT_INTERNAL {
+  rectangle "Mgmt01\n10.0.19.10" as mgmt
+}
+
+  
 
 ' --- Connections ---
 SW -[dashed]-> LINK_FREEMAN
@@ -38,8 +46,11 @@ LINK_FREEMAN -[bold]-> LINK_INTERNAL : routed link
 LINK_INTERNAL -[dashed]-> DC1
 LINK_INTERNAL -[dashed]-> MGMT
 LINK_INTERNAL -[dashed]-> vCenter
+LINK_INTERNAL -[dashed]-> DMZ_INTERNAL
+LINK_INTERNAL -[dashed]-> MGMT_INTERNAL
 SW -[dashed]-> IPMI
 IPMI -[dashed]-> ESXI
+
 
 
 @enduml
