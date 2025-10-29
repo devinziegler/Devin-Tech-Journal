@@ -19,37 +19,44 @@ rectangle "Freeman Network\n192.168.3.0/24" as FREEMAN {
     }
 }
 
-rectangle "350-Internal Network\n10.0.17.0/24" as INTERNAL {
+rectangle "350-Internal Network\n10.0.17.0/24" as LAN_INTERNAL {
   rectangle "Firewall (Internal iface)\n10.0.17.2" as LINK_INTERNAL
   rectangle "dc1\n10.0.17.4" as DC1
-    rectangle "mgmt-wan\n10.0.17.100" as MGMT {
-        rectangle "vCenter\n10.0.17.3" as vCenter
-
-    }
+  rectangle "vCenter\n10.0.17.3" as vCenter
 }
 
 rectangle "DMZ Network\n10.0.18.0/24" as DMZ_INTERNAL {
+  rectangle "Firewall (DMZ iface)\n10.0.18.2" as LINK_DMZ
   rectangle "Web01\n10.0.18.10" as web01
 }
 
 rectangle "MGMT Network\n10.0.19.0/24" as MGMT_INTERNAL {
-  rectangle "Mgmt01\n10.0.19.10" as mgmt
+  rectangle "Firewall (MGMT iface)\n10.0.19.2" as LINK_MGMT
+  rectangle "Mgmt01\n10.0.19.100" as mgmt
+  rectangle "backup01\n10.0.19.10"as backup01
 }
 
   
 
 ' --- Connections ---
 SW -[dashed]-> LINK_FREEMAN
+SW -[dashed]-> IPMI
 GW -[dashed]-> SW
 GW -[dashed]-> WS
-LINK_FREEMAN -[bold]-> LINK_INTERNAL : routed link
-LINK_INTERNAL -[dashed]-> DC1
-LINK_INTERNAL -[dashed]-> MGMT
-LINK_INTERNAL -[dashed]-> vCenter
-LINK_INTERNAL -[dashed]-> DMZ_INTERNAL
-LINK_INTERNAL -[dashed]-> MGMT_INTERNAL
-SW -[dashed]-> IPMI
 IPMI -[dashed]-> ESXI
+
+LINK_FREEMAN -[bold]-> LINK_INTERNAL : routed link
+LINK_FREEMAN -[bold]-> LINK_DMZ : routed link
+LINK_FREEMAN -[bold]-> LINK_MGMT : routed link
+
+LINK_INTERNAL -[dashed]-> DC1
+LINK_INTERNAL -[dashed]-> vCenter
+
+LINK_DMZ -[dashed]-> web01
+
+LINK_MGMT -[dashed]-> mgmt
+LINK_MGMT -[dashed]-> backup01
+
 
 
 

@@ -20,7 +20,7 @@
  1. In pfsense web dashboard go to `firewall/rules`
  2. Select New DMZ interface
  3. Add a new rule with the following:
- ```
+ ```yaml
 Action:      Pass
 Interface:   DMZ
 Protocol:    Any
@@ -48,7 +48,23 @@ firewall-cmd --reload
 ## Configuring Ubuntu Server
 **Ubuntu networking is done through netplan, which we have done is the past,[here](https://github.com/devinziegler/Devin-Tech-Journal/wiki/Docker-&-Debian#ubuntu-network-configuration)**
 
-The full netplan file for this sytem can be found here: [backup01-netplan]()
+The full netplan file for this sytem can be found here: [backup01-netplan](https://github.com/devinziegler/Devin-Tech-Journal/blob/main/SYS-350/backup01/netplan.yaml)
+
+**Add default pass rule for MGMT**
+```yaml
+Action:      Pass
+Interface:   MGMT
+Protocol:    Any
+Source:      MGMT net
+Destination: Any
+```
+
+## Firewall & Testing
+* **Drop Everything from DMZ to LAN**
+* **Drop Everything from DMZ to MGMT**
+
+This is an example of what there rules should look like:
+![firewall_rules]()
 
 
 
