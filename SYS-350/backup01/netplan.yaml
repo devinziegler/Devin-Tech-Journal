@@ -1,0 +1,13 @@
+network:
+     version: 2
+     renderer: networkd
+     ethernets:
+          enp3s0:
+              addresses:
+                  - 10.0.19.10/24
+              nameservers:
+                  addresses: [10.0.19.2]
+              routes:
+                  - to: default
+                    via: 10.0.19.2
+                
