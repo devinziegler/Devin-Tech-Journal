@@ -1,0 +1,8 @@
+{ "vcenter": [
+    {
+        "vcenterhost" : "vcenter.devin.local",
+        "vcenteradmin" : "devin-adm@devin.local"
+    }
+]
+
+}
