@@ -1,0 +1,4 @@
+# Nmap 7.95 scan initiated Tue Feb  3 12:04:32 2026 as: /usr/lib/nmap/nmap -sT -sV --top-ports=100 -Pn -oG top100.txt 10.0.5.28
+Host: 10.0.5.28 ()	Status: Up
+Host: 10.0.5.28 ()	Ports: 80/open/tcp//http//Apache httpd 2.2.15 ((CentOS))/, 443/open/tcp//ssl|http//Apache httpd 2.2.15 ((CentOS))/	Ignored State: closed (98)
+# Nmap done at Tue Feb  3 12:04:44 2026 -- 1 IP address (1 host up) scanned in 12.42 seconds
