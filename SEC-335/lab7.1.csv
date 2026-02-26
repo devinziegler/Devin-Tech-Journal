@@ -1,0 +1,12 @@
+username,password,service,
+peregin.took,1Tookie,ssh,
+root,1Tookie,MariaDB,
+pippin,palar21,ssh,
+,,,
+,,,
+,,,
+username,system,hash,hashcat
+pippin,,:pbkdf2:sha512:30000:64:7zMbdjXKrFDDq4CRF5q9ow==:49ImFWdWRVz2dCDsJPj+P0Xovz153VenjKk7npuK7u5xgo21IUh+eY0QH8fQxdH/Cjx3zxZyQcfNChAnP11GNg==,12100
+,,,
+,,,
+,,,
