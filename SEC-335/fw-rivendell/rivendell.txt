@@ -1,0 +1,100 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: rivendell.txt
+START_TIME: Tue Apr 28 22:47:44 2026
+URL_BASE: http://10.0.5.250/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.0.5.250/ ----
++ http://10.0.5.250/index.php (CODE:301|SIZE:1)
++ http://10.0.5.250/server-status (CODE:403|SIZE:275)
+==> DIRECTORY: http://10.0.5.250/wp-admin/
+==> DIRECTORY: http://10.0.5.250/wp-content/
+==> DIRECTORY: http://10.0.5.250/wp-includes/
++ http://10.0.5.250/xmlrpc.php (CODE:405|SIZE:43)
+
+---- Entering directory: http://10.0.5.250/wp-admin/ ----
++ http://10.0.5.250/wp-admin/admin.php (CODE:302|SIZE:1)
+==> DIRECTORY: http://10.0.5.250/wp-admin/css/
+==> DIRECTORY: http://10.0.5.250/wp-admin/images/
+==> DIRECTORY: http://10.0.5.250/wp-admin/includes/
++ http://10.0.5.250/wp-admin/index.php (CODE:302|SIZE:1)
+==> DIRECTORY: http://10.0.5.250/wp-admin/js/
+==> DIRECTORY: http://10.0.5.250/wp-admin/maint/
+==> DIRECTORY: http://10.0.5.250/wp-admin/network/
+==> DIRECTORY: http://10.0.5.250/wp-admin/user/
+
+---- Entering directory: http://10.0.5.250/wp-content/ ----
++ http://10.0.5.250/wp-content/index.php (CODE:200|SIZE:0)
+==> DIRECTORY: http://10.0.5.250/wp-content/plugins/
+==> DIRECTORY: http://10.0.5.250/wp-content/themes/
+==> DIRECTORY: http://10.0.5.250/wp-content/upgrade/
+==> DIRECTORY: http://10.0.5.250/wp-content/uploads/
+
+---- Entering directory: http://10.0.5.250/wp-includes/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/css/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/images/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/includes/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/js/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/maint/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/network/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-admin/user/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-content/plugins/ ----
++ http://10.0.5.250/wp-content/plugins/index.php (CODE:200|SIZE:0)
+==> DIRECTORY: http://10.0.5.250/wp-content/plugins/plugin/
+==> DIRECTORY: http://10.0.5.250/wp-content/plugins/shell/
+
+---- Entering directory: http://10.0.5.250/wp-content/themes/ ----
++ http://10.0.5.250/wp-content/themes/index.php (CODE:200|SIZE:0)
+
+---- Entering directory: http://10.0.5.250/wp-content/upgrade/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-content/uploads/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-content/plugins/plugin/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.0.5.250/wp-content/plugins/shell/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+-----------------
+END_TIME: Tue Apr 28 22:48:09 2026
+DOWNLOADED: 23060 - FOUND: 8

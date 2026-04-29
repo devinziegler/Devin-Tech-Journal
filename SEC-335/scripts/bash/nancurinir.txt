@@ -1,0 +1,22 @@
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-28 15:45 -0400
+Stats: 0:00:02 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 1.00% done; ETC: 15:49 (0:03:18 remaining)
+Nmap scan report for 10.0.5.28
+Host is up (0.0018s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Site doesn't have a title (text/html).
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Linux 4.15 - 5.19 (97%), Linux 4.19 (97%), Linux 5.0 - 5.14 (97%), OpenWrt 21.02 (Linux 5.4) (97%), MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3) (97%), Linux 6.0 (95%), Linux 5.4 - 5.10 (91%), Linux 2.6.32 (91%), Linux 2.6.32 - 3.13 (91%), Linux 3.10 - 4.11 (91%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT     ADDRESS
+1   0.94 ms 10.0.17.3
+2   2.09 ms 10.0.5.28
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.79 seconds
